@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts Percentage Bar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+</head>
+
+<body>
+    <div id="chart" style="width: 100%; height: 400px;"></div>
+
+    <script>
+
+        // 假设数据已经存储在变量 data 中
+        var data = {
+            "data": {
+                "items": [
+                    {
+                        "date": "2024-06-12",
+                        "nav": "1.0211",
+                        "percentage": "0.01",
+                        "value": "1.0211"
+                    },
+                    {
+                        "date": "2024-06-11",
+                        "nav": "1.0210",
+                        "percentage": "0.02",
+                        "value": "1.0210"
+                    },
+                    {
+                        "date": "2024-06-07",
+                        "nav": "1.0208",
+                        "percentage": "0.0",
+                        "value": "1.0208"
+                    },
+                    {
+                        "date": "2024-06-06",
+                        "nav": "1.0208",
+                        "percentage": "0.02",
+                        "value": "1.0208"
+                    },
+                    {
+                        "date": "2024-06-05",
+                        "nav": "1.0206",
+                        "percentage": "0.02",
+                        "value": "1.0206"
+                    },
+                    {
+                        "date": "2024-06-04",
+                        "nav": "1.0204",
+                        "percentage": "0.0",
+                        "value": "1.0204"
+                    },
+                    {
+                        "date": "2024-06-03",
+                        "nav": "1.0204",
+                        "percentage": "0.02",
+                        "value": "1.0204"
+                    },
+                    {
+                        "date": "2024-05-31",
+                        "nav": "1.0202",
+                        "percentage": "0.0",
+                        "value": "1.0202"
+                    },
+                    {
+                        "date": "2024-05-30",
+                        "nav": "1.0202",
+                        "percentage": "0.02",
+                        "value": "1.0202"
+                    },
+                    {
+                        "date": "2024-05-29",
+                        "nav": "1.0200",
+                        "percentage": "0.02",
+                        "value": "1.0200"
+                    },
+                    {
+                        "date": "2024-05-28",
+                        "nav": "1.0198",
+                        "percentage": "0.01",
+                        "value": "1.0198"
+                    },
+                    {
+                        "date": "2024-05-27",
+                        "nav": "1.0197",
+                        "percentage": "0.01",
+                        "value": "1.0197"
+                    },
+                    {
+                        "date": "2024-05-24",
+                        "nav": "1.0196",
+                        "percentage": "0.0",
+                        "value": "1.0196"
+                    },
+                    {
+                        "date": "2024-05-23",
+                        "nav": "1.0196",
+                        "percentage": "0.03",
+                        "value": "1.0196"
+                    },
+                    {
+                        "date": "2024-05-22",
+                        "nav": "1.0193",
+                        "percentage": "0.02",
+                        "value": "1.0193"
+                    },
+                    {
+                        "date": "2024-05-21",
+                        "nav": "1.0191",
+                        "percentage": "0.0",
+                        "value": "1.0191"
+                    },
+                    {
+                        "date": "2024-05-20",
+                        "nav": "1.0191",
+                        "percentage": "0.02",
+                        "value": "1.0191"
+                    },
+                    {
+                        "date": "2024-05-17",
+                        "nav": "1.0189",
+                        "percentage": "0.01",
+                        "value": "1.0189"
+                    },
+                    {
+                        "date": "2024-05-16",
+                        "nav": "1.0188",
+                        "percentage": "0.0",
+                        "value": "1.0188"
+                    },
+                    {
+                        "date": "2024-05-15",
+                        "nav": "1.0188",
+                        "percentage": "0.01",
+                        "value": "1.0188"
+                    },
+                    {
+                        "date": "2024-05-14",
+                        "nav": "1.0187",
+                        "percentage": "0.01",
+                        "value": "1.0187"
+                    },
+                    {
+                        "date": "2024-05-13",
+                        "nav": "1.0186",
+                        "percentage": "0.02",
+                        "value": "1.0186"
+                    },
+                    {
+                        "date": "2024-05-10",
+                        "nav": "1.0184",
+                        "percentage": "0.01",
+                        "value": "1.0184"
+                    },
+                    {
+                        "date": "2024-05-09",
+                        "nav": "1.0183",
+                        "percentage": "0.01",
+                        "value": "1.0183"
+                    },
+                    {
+                        "date": "2024-05-08",
+                        "nav": "1.0182",
+                        "percentage": "0.0",
+                        "value": "1.0182"
+                    },
+                    {
+                        "date": "2024-05-07",
+                        "nav": "1.0182",
+                        "percentage": "0.02",
+                        "value": "1.0182"
+                    },
+                    {
+                        "date": "2024-05-06",
+                        "nav": "1.0180",
+                        "percentage": "0.03",
+                        "value": "1.0180"
+                    },
+                    {
+                        "date": "2024-04-30",
+                        "nav": "1.0177",
+                        "percentage": "0.02",
+                        "value": "1.0177"
+                    },
+                    {
+                        "date": "2024-04-29",
+                        "nav": "1.0175",
+                        "percentage": "-0.02",
+                        "value": "1.0175"
+                    },
+                    {
+                        "date": "2024-04-26",
+                        "nav": "1.0177",
+                        "percentage": "-0.01",
+                        "value": "1.0177"
+                    },
+                    {
+                        "date": "2024-04-25",
+                        "nav": "1.0178",
+                        "percentage": "0.0",
+                        "value": "1.0178"
+                    },
+                    {
+                        "date": "2024-04-24",
+                        "nav": "1.0178",
+                        "percentage": "-0.01",
+                        "value": "1.0178"
+                    },
+                    {
+                        "date": "2024-04-23",
+                        "nav": "1.0179",
+                        "percentage": "0.01",
+                        "value": "1.0179"
+                    },
+                    {
+                        "date": "2024-04-22",
+                        "nav": "1.0178",
+                        "percentage": "0.02",
+                        "value": "1.0178"
+                    },
+                    {
+                        "date": "2024-04-19",
+                        "nav": "1.0176",
+                        "percentage": "0.02",
+                        "value": "1.0176"
+                    },
+                    {
+                        "date": "2024-04-18",
+                        "nav": "1.0174",
+                        "percentage": "0.01",
+                        "value": "1.0174"
+                    },
+                    {
+                        "date": "2024-04-17",
+                        "nav": "1.0173",
+                        "percentage": "0.01",
+                        "value": "1.0173"
+                    },
+                    {
+                        "date": "2024-04-16",
+                        "nav": "1.0172",
+                        "percentage": "0.01",
+                        "value": "1.0172"
+                    },
+                    {
+                        "date": "2024-04-15",
+                        "nav": "1.0171",
+                        "percentage": "0.02",
+                        "value": "1.0171"
+                    },
+                    {
+                        "date": "2024-04-12",
+                        "nav": "1.0169",
+                        "percentage": "0.02",
+                        "value": "1.0169"
+                    },
+                    {
+                        "date": "2024-04-11",
+                        "nav": "1.0167",
+                        "percentage": "0.01",
+                        "value": "1.0167"
+                    },
+                    {
+                        "date": "2024-04-10",
+                        "nav": "1.0166",
+                        "percentage": "0.02",
+                        "value": "1.0166"
+                    },
+                    {
+                        "date": "2024-04-09",
+                        "nav": "1.0164",
+                        "percentage": "0.01",
+                        "value": "1.0164"
+                    },
+                    {
+                        "date": "2024-04-08",
+                        "nav": "1.0163",
+                        "percentage": "0.04",
+                        "value": "1.0163"
+                    },
+                    {
+                        "date": "2024-04-03",
+                        "nav": "1.0159",
+                        "percentage": "0.02",
+                        "value": "1.0159"
+                    },
+                    {
+                        "date": "2024-04-02",
+                        "nav": "1.0157",
+                        "percentage": "0.02",
+                        "value": "1.0157"
+                    },
+                    {
+                        "date": "2024-04-01",
+                        "nav": "1.0155",
+                        "percentage": "0.01",
+                        "value": "1.0155"
+                    },
+                    {
+                        "date": "2024-03-29",
+                        "nav": "1.0627",
+                        "percentage": "0.02",
+                        "value": "1.0627"
+                    },
+                    {
+                        "date": "2024-03-28",
+                        "nav": "1.0625",
+                        "percentage": "0.0",
+                        "value": "1.0625"
+                    },
+                    {
+                        "date": "2024-03-27",
+                        "nav": "1.0625",
+                        "percentage": "0.01",
+                        "value": "1.0625"
+                    },
+                    {
+                        "date": "2024-03-26",
+                        "nav": "1.0624",
+                        "percentage": "0.0",
+                        "value": "1.0624"
+                    },
+                    {
+                        "date": "2024-03-25",
+                        "nav": "1.0624",
+                        "percentage": "0.01",
+                        "value": "1.0624"
+                    },
+                    {
+                        "date": "2024-03-22",
+                        "nav": "1.0623",
+                        "percentage": "0.0",
+                        "value": "1.0623"
+                    },
+                    {
+                        "date": "2024-03-21",
+                        "nav": "1.0623",
+                        "percentage": "0.01",
+                        "value": "1.0623"
+                    },
+                    {
+                        "date": "2024-03-20",
+                        "nav": "1.0622",
+                        "percentage": "0.01",
+                        "value": "1.0622"
+                    },
+                    {
+                        "date": "2024-03-19",
+                        "nav": "1.0621",
+                        "percentage": "0.01",
+                        "value": "1.0621"
+                    },
+                    {
+                        "date": "2024-03-18",
+                        "nav": "1.0620",
+                        "percentage": "0.01",
+                        "value": "1.0620"
+                    },
+                    {
+                        "date": "2024-03-15",
+                        "nav": "1.0619",
+                        "percentage": "0.01",
+                        "value": "1.0619"
+                    },
+                    {
+                        "date": "2024-03-14",
+                        "nav": "1.0618",
+                        "percentage": "-0.01",
+                        "value": "1.0618"
+                    },
+                    {
+                        "date": "2024-03-13",
+                        "nav": "1.0619",
+                        "percentage": "-0.01",
+                        "value": "1.0619"
+                    },
+                    {
+                        "date": "2024-03-12",
+                        "nav": "1.0620",
+                        "percentage": "0.0",
+                        "value": "1.0620"
+                    },
+                    {
+                        "date": "2024-03-11",
+                        "nav": "1.0620",
+                        "percentage": "0.01",
+                        "value": "1.0620"
+                    },
+                    {
+                        "date": "2024-03-08",
+                        "nav": "1.0619",
+                        "percentage": "0.01",
+                        "value": "1.0619"
+                    },
+                    {
+                        "date": "2024-03-07",
+                        "nav": "1.0618",
+                        "percentage": "0.01",
+                        "value": "1.0618"
+                    },
+                    {
+                        "date": "2024-03-06",
+                        "nav": "1.0617",
+                        "percentage": "0.01",
+                        "value": "1.0617"
+                    },
+                    {
+                        "date": "2024-03-05",
+                        "nav": "1.0616",
+                        "percentage": "0.01",
+                        "value": "1.0616"
+                    },
+                    {
+                        "date": "2024-03-04",
+                        "nav": "1.0615",
+                        "percentage": "0.02",
+                        "value": "1.0615"
+                    },
+                    {
+                        "date": "2024-03-01",
+                        "nav": "1.0613",
+                        "percentage": "-0.01",
+                        "value": "1.0613"
+                    },
+                    {
+                        "date": "2024-02-29",
+                        "nav": "1.0614",
+                        "percentage": "0.02",
+                        "value": "1.0614"
+                    },
+                    {
+                        "date": "2024-02-28",
+                        "nav": "1.0612",
+                        "percentage": "0.01",
+                        "value": "1.0612"
+                    },
+                    {
+                        "date": "2024-02-27",
+                        "nav": "1.0611",
+                        "percentage": "0.02",
+                        "value": "1.0611"
+                    },
+                    {
+                        "date": "2024-02-26",
+                        "nav": "1.0609",
+                        "percentage": "0.02",
+                        "value": "1.0609"
+                    },
+                    {
+                        "date": "2024-02-23",
+                        "nav": "1.0607",
+                        "percentage": "0.02",
+                        "value": "1.0607"
+                    },
+                    {
+                        "date": "2024-02-22",
+                        "nav": "1.0605",
+                        "percentage": "0.02",
+                        "value": "1.0605"
+                    },
+                    {
+                        "date": "2024-02-21",
+                        "nav": "1.0603",
+                        "percentage": "0.01",
+                        "value": "1.0603"
+                    },
+                    {
+                        "date": "2024-02-20",
+                        "nav": "1.0602",
+                        "percentage": "0.02",
+                        "value": "1.0602"
+                    },
+                    {
+                        "date": "2024-02-19",
+                        "nav": "1.0600",
+                        "percentage": "0.08",
+                        "value": "1.0600"
+                    },
+                    {
+                        "date": "2024-02-08",
+                        "nav": "1.0592",
+                        "percentage": "0.0",
+                        "value": "1.0592"
+                    },
+                    {
+                        "date": "2024-02-07",
+                        "nav": "1.0592",
+                        "percentage": "0.01",
+                        "value": "1.0592"
+                    },
+                    {
+                        "date": "2024-02-06",
+                        "nav": "1.0591",
+                        "percentage": "0.0",
+                        "value": "1.0591"
+                    },
+                    {
+                        "date": "2024-02-05",
+                        "nav": "1.0591",
+                        "percentage": "0.03",
+                        "value": "1.0591"
+                    },
+                    {
+                        "date": "2024-02-02",
+                        "nav": "1.0588",
+                        "percentage": "0.01",
+                        "value": "1.0588"
+                    },
+                    {
+                        "date": "2024-02-01",
+                        "nav": "1.0587",
+                        "percentage": "0.01",
+                        "value": "1.0587"
+                    },
+                    {
+                        "date": "2024-01-31",
+                        "nav": "1.0586",
+                        "percentage": "0.03",
+                        "value": "1.0586"
+                    },
+                    {
+                        "date": "2024-01-30",
+                        "nav": "1.0583",
+                        "percentage": "0.02",
+                        "value": "1.0583"
+                    },
+                    {
+                        "date": "2024-01-29",
+                        "nav": "1.0581",
+                        "percentage": "0.03",
+                        "value": "1.0581"
+                    },
+                    {
+                        "date": "2024-01-26",
+                        "nav": "1.0578",
+                        "percentage": "0.02",
+                        "value": "1.0578"
+                    },
+                    {
+                        "date": "2024-01-25",
+                        "nav": "1.0576",
+                        "percentage": "0.01",
+                        "value": "1.0576"
+                    },
+                    {
+                        "date": "2024-01-24",
+                        "nav": "1.0575",
+                        "percentage": "0.01",
+                        "value": "1.0575"
+                    },
+                    {
+                        "date": "2024-01-23",
+                        "nav": "1.0574",
+                        "percentage": "0.0",
+                        "value": "1.0574"
+                    },
+                    {
+                        "date": "2024-01-22",
+                        "nav": "1.0574",
+                        "percentage": "0.04",
+                        "value": "1.0574"
+                    },
+                    {
+                        "date": "2024-01-19",
+                        "nav": "1.0570",
+                        "percentage": "0.01",
+                        "value": "1.0570"
+                    },
+                    {
+                        "date": "2024-01-18",
+                        "nav": "1.0569",
+                        "percentage": "0.02",
+                        "value": "1.0569"
+                    },
+                    {
+                        "date": "2024-01-17",
+                        "nav": "1.0567",
+                        "percentage": "0.02",
+                        "value": "1.0567"
+                    },
+                    {
+                        "date": "2024-01-16",
+                        "nav": "1.0565",
+                        "percentage": "0.0",
+                        "value": "1.0565"
+                    },
+                    {
+                        "date": "2024-01-15",
+                        "nav": "1.0565",
+                        "percentage": "0.02",
+                        "value": "1.0565"
+                    },
+                    {
+                        "date": "2024-01-12",
+                        "nav": "1.0563",
+                        "percentage": "0.01",
+                        "value": "1.0563"
+                    },
+                    {
+                        "date": "2024-01-11",
+                        "nav": "1.0562",
+                        "percentage": "0.0",
+                        "value": "1.0562"
+                    },
+                    {
+                        "date": "2024-01-10",
+                        "nav": "1.0562",
+                        "percentage": "0.01",
+                        "value": "1.0562"
+                    },
+                    {
+                        "date": "2024-01-09",
+                        "nav": "1.0561",
+                        "percentage": "0.02",
+                        "value": "1.0561"
+                    }
+                ],
+                "current_page": 1,
+                "size": 100,
+                "total_items": 840,
+                "total_pages": 9
+            },
+            "result_code": 0
+        };
+
+        var chartData = data.data.items.map(function (item) {
+            return item.percentage;
+        }).reverse(); // 反转;
+
+        var chartDates = data.data.items.map(function (item) {
+            return item.date;
+        }).reverse(); // 反转日期顺序
+
+        // 初始化 Echarts 实例
+        var chartDom = document.getElementById('chart');
+        var myChart = echarts.init(chartDom);
+
+        // 设置图表配置项
+        var option = {
+            xAxis: {
+                type: 'category',
+                data: chartDates
+            },
+            yAxis: {
+                type: 'value'
+            },
+            //echart的percentage>0.00为红色,<0为为绿色
+            series: [
+                {
+                    data: chartData,
+                    type: 'bar',
+                    itemStyle: {
+                        color: function (params) {
+                            return params.data >= 0 ? 'red' : 'green';
+                        }
+                    }
+                },
+                {
+                    data: chartData,
+                    type: 'line',
+                    itemStyle: {
+                        color: function (params) {
+                            return params.data >= 0 ? 'red' : 'green';
+                        }
+                    }
+                },
+            ]
+        };
+
+        // 渲染图表
+        myChart.setOption(option);
+        // 统计下percentage>0的比率
+        var count = 0;
+        var eggCount = 0;
+        var data = data.data.items;
+        for (var i = 0; i < data.length; i++) {
+            eggCount += data[i].percentage * 100;
+            if (data[i].percentage > 0) {
+                count++;
+            }
+        }
+       alert("首单啦"+ count / data.length+" "+ eggCount);
+    </script>
+</body>
+
+</html>
